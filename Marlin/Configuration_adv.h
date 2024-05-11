@@ -574,7 +574,7 @@
  * The fan turns on automatically whenever any driver is enabled and turns
  * off (or reduces to idle speed) shortly after drivers are turned off.
  */
-//#define USE_CONTROLLER_FAN
+//#define USE_CONTROLLER_FAN //TODO
 #if ENABLED(USE_CONTROLLER_FAN)
   //#define CONTROLLER_FAN_PIN -1           // Set a custom pin for the controller fan
   //#define CONTROLLER_FAN2_PIN -1          // Set a custom pin for second controller fan
@@ -667,7 +667,7 @@
 #endif
 
 /**
- * Assign more PWM fans for part cooling, synchronized with Fan 0
+ * Assign more PWM fans for part cooling, synchronized with Fan 0 //TODO
  */
 //#define REDUNDANT_PART_COOLING_FAN 1  // Index of the first fan to synchronize with Fan 0
 #ifdef REDUNDANT_PART_COOLING_FAN
@@ -882,7 +882,7 @@
 #endif
 
 //
-// Multi-Z steppers
+// Multi-Z steppers //TODO
 //
 #ifdef Z2_DRIVER_TYPE
   //#define INVERT_Z2_VS_Z_DIR        // Z2 direction signal is the opposite of Z
