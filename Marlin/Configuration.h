@@ -61,14 +61,14 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Original author or contributor.
+#define STRING_CONFIG_H_AUTHOR "Spidey" // Who made the changes. // UPDATED
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 // @section machine
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BTT_OCTOPUS_PRO_V1_1
+  #define MOTHERBOARD BOARD_BTT_OCTOPUS_V1_1
 #endif
 
 // @section serial
@@ -94,7 +94,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000 // UPDATED
 
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
@@ -151,21 +151,21 @@
  *          TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE  TB6600
-#define Y_DRIVER_TYPE  TB6600
-#define Z_DRIVER_TYPE  TMC2209
+#define X_DRIVER_TYPE  TMC2209 //TB6600 // UPDATED
+#define Y_DRIVER_TYPE  TMC2209 //TB6600 // UPDATED
+#define Z_DRIVER_TYPE  TMC2209 // UPDATED
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
-#define Z2_DRIVER_TYPE TMC2209
-#define Z3_DRIVER_TYPE TMC2209
-#define Z4_DRIVER_TYPE TMC2209
+#define Z2_DRIVER_TYPE TMC2209 // UPDATED
+#define Z3_DRIVER_TYPE TMC2209 // UPDATED
+#define Z4_DRIVER_TYPE TMC2209 // UPDATED
 //#define I_DRIVER_TYPE  A4988
 //#define J_DRIVER_TYPE  A4988
 //#define K_DRIVER_TYPE  A4988
 //#define U_DRIVER_TYPE  A4988
 //#define V_DRIVER_TYPE  A4988
 //#define W_DRIVER_TYPE  A4988
-#define E0_DRIVER_TYPE TMC2209
+#define E0_DRIVER_TYPE TMC2209 // UPDATED
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -907,7 +907,7 @@
  *
  * *** IT IS HIGHLY RECOMMENDED TO LEAVE THIS OPTION ENABLED! ***
  */
-#define PREVENT_COLD_EXTRUSION
+// #define PREVENT_COLD_EXTRUSION // TODO: UNCOMMENT!
 #define EXTRUDE_MINTEMP 160
 
 /**
@@ -915,7 +915,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 500
+#define EXTRUDE_MAXLENGTH 600
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -947,7 +947,7 @@
 
 // Enable one of the options below for CoreXY, CoreXZ, or CoreYZ kinematics,
 // either in the usual order or reversed
-#define COREXY
+#define COREXY // UPDATED
 //#define COREXZ
 //#define COREYZ
 //#define COREYX
@@ -1222,6 +1222,7 @@
  * Endstop "Hit" State
  * Set to the state (HIGH or LOW) that applies to each endstop.
  */
+// TODO: figure out high/low
 #define X_MIN_ENDSTOP_HIT_STATE HIGH
 #define X_MAX_ENDSTOP_HIT_STATE HIGH
 #define Y_MIN_ENDSTOP_HIT_STATE HIGH
@@ -1245,6 +1246,7 @@
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
 //#define ENDSTOP_INTERRUPTS_FEATURE
+// TODO: figure out if i can use interrupts
 
 /**
  * Endstop Noise Threshold
@@ -1288,7 +1290,7 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 397 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 397 } //TODO : get these right
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
@@ -1313,7 +1315,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 } //TODO : get these right
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1369,7 +1371,8 @@
  *   https://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
+// TODO: tune this if i need to
+  #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge 
   #define JD_HANDLE_SMALL_SEGMENTS    // Use curvature estimation instead of just the junction angle
                                       // for small segments (< 1mm) with large junction angles (> 135°).
 #endif
@@ -1702,7 +1705,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 3 // TODO: CONFIRM I WANT THIS
 //#define EXTRA_PROBING    1
 
 /**
@@ -1878,8 +1881,10 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 400
-#define Y_BED_SIZE 400
+#define X_BED_SIZE 245 //TODO
+// #define X_BED_SIZE 400
+#define Y_BED_SIZE 245 //TODO
+// #define Y_BED_SIZE 400
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0 //TODO
@@ -1887,7 +1892,7 @@
 #define Z_MIN_POS 0 //TODO
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 560
+#define Z_MAX_POS 300
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2330,9 +2335,11 @@
  * - Allows Z homing only when XY positions are known and trusted.
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
-#define Z_SAFE_HOMING
+// #define Z_SAFE_HOMING
 
-#if ENABLED(Z_SAFE_HOMING)
+#define NO_Z_SAFE_HOMING_WARNING
+
+#if ENABLED(Z_SAFE_HOMING) // TODO: FIX!
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // (mm) X point for Z homing
   #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // (mm) Y point for Z homing
   //#define Z_SAFE_HOMING_POINT_ABSOLUTE  // Ignore home offsets (M206) for Z homing position
