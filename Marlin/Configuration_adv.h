@@ -667,11 +667,11 @@
 #endif
 
 /**
- * Assign more PWM fans for part cooling, synchronized with Fan 0 //TODO
+ * Assign more PWM fans for part cooling, synchronized with Fan 0 //TODO TEST
  */
-//#define REDUNDANT_PART_COOLING_FAN 1  // Index of the first fan to synchronize with Fan 0
+#define REDUNDANT_PART_COOLING_FAN 1  // Index of the first fan to synchronize with Fan 0
 #ifdef REDUNDANT_PART_COOLING_FAN
-  //#define NUM_REDUNDANT_FANS 1        // Number of sequential fans to synchronize with Fan 0
+  #define NUM_REDUNDANT_FANS 1        // Number of sequential fans to synchronize with Fan 0
 #endif
 
 /**
@@ -686,7 +686,7 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN -1 //TODO: make this fan2?
+#define E0_AUTO_FAN_PIN FAN2_PIN //TODO: make this fan2?
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
@@ -1025,7 +1025,7 @@
  * Z Steppers Auto-Alignment
  * Add the G34 command to align multiple Z steppers using a bed probe.
  */
-//#define Z_STEPPER_AUTO_ALIGN
+//#define Z_STEPPER_AUTO_ALIGN // TODO
 #if ENABLED(Z_STEPPER_AUTO_ALIGN)
   /**
    * Define probe X and Y positions for Z1, Z2 [, Z3 [, Z4]]
