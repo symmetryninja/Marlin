@@ -1293,7 +1293,9 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 88, 88, 1038, 203.59 } //TODO : get these right
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 88, 88, 800, 203.59 } //TODO : get these right
+// #define DEFAULT_AXIS_STEPS_PER_UNIT   { 88, 88, 320, 203.59 } // ballscrew
+//M92 X88.00 Y88.00 Z800.00 E203.59
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
@@ -1305,7 +1307,8 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 200, 200, 30, 20 }
+#define DEFAULT_MAX_FEEDRATE          { 200, 200, 10, 15 }
+// M203 X200.00 Y200.00 Z10.00 E15.00
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1813,7 +1816,7 @@
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR true
 #define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_Z_DIR true
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
 //#define INVERT_K_DIR false
@@ -2107,8 +2110,8 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#define AUTO_BED_LEVELING_BILINEAR
-//#define AUTO_BED_LEVELING_UBL
+// #define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
 /**
