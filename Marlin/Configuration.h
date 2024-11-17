@@ -800,10 +800,10 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 225.09 // TODO: this is for the 250mm bed - do 400
-  #define DEFAULT_bedKi 32.34 // TODO: this is for the 250mm bed - do 400
-  #define DEFAULT_bedKd 1044.41 // TODO: this is for the 250mm bed - do 400
-// M304 P225.09 I32.34 D1044.41
+  #define DEFAULT_bedKp 221.46
+  #define DEFAULT_bedKi 41.94
+  #define DEFAULT_bedKd 779.54
+// M304 P221.46 I41.94 D779.54
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #else
   //#define BED_LIMIT_SWITCHING   // Keep the bed temperature within BED_HYSTERESIS of the target
@@ -1308,7 +1308,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 #define DEFAULT_MAX_FEEDRATE          { 200, 200, 10, 15 }
-// M203 X200.00 Y200.00 Z10.00 E15.00
+// M203 X200.00 Y200.00 Z7.50 E15.00
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1886,18 +1886,16 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 245 //TODO
-// #define X_BED_SIZE 400
-#define Y_BED_SIZE 245 //TODO
-// #define Y_BED_SIZE 400
+#define X_BED_SIZE 400
+#define Y_BED_SIZE 400
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -110 //TODO
-#define Y_MIN_POS -90 //TODO
-#define Z_MIN_POS 0 //TODO
+#define X_MIN_POS -32
+#define Y_MIN_POS -7
+#define Z_MIN_POS 0 
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 500
+#define Z_MAX_POS 420
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
