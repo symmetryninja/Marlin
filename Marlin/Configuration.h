@@ -1293,7 +1293,7 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 88, 88, 800, 203.59 } //TODO : get these right
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 88, 88, 1600, 203.59 } // UPDATED (linear rail)
 // #define DEFAULT_AXIS_STEPS_PER_UNIT   { 88, 88, 320, 203.59 } // ballscrew
 //M92 X88.00 Y88.00 Z800.00 E203.59
 
@@ -1642,7 +1642,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -30, -15, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -30, -15, 2.0 }
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1886,16 +1886,16 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 400
-#define Y_BED_SIZE 400
+#define X_BED_SIZE 400 //UPDATED
+#define Y_BED_SIZE 400 //UPDATED
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -32
-#define Y_MIN_POS -7
+#define X_MIN_POS -32 //UPDATED
+#define Y_MIN_POS -7 //UPDATED
 #define Z_MIN_POS 0 
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 420
+#define Z_MAX_POS 420 //UPDATED
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
