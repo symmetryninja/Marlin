@@ -1293,9 +1293,9 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 88, 88, 1600, 203.59 } // UPDATED (linear rail)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 89, 89, 1600, 397.50 } //TODO : get these right
 // #define DEFAULT_AXIS_STEPS_PER_UNIT   { 88, 88, 320, 203.59 } // ballscrew
-//M92 X88.00 Y88.00 Z800.00 E203.59
+//M92 X89.00 Y89.00 Z1600.00 E397.50
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
@@ -1895,7 +1895,7 @@
 #define Z_MIN_POS 0 
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 420 //UPDATED
+#define Z_MAX_POS 440
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
