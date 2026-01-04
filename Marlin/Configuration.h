@@ -61,7 +61,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-+#define STRING_CONFIG_H_AUTHOR "Spidey"  // changed for spike // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Spidey"  // changed for spike // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -88,7 +88,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD MOTHERBOARD BOARD_BTT_OCTOPUS_V1_1 // changed for spike
+  #define MOTHERBOARD BOARD_BTT_OCTOPUS_V1_1 // changed for spike
 #endif
 
 /**
